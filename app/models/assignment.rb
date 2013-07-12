@@ -1,3 +1,4 @@
 class Assignment < ActiveRecord::Base
-  attr_accessible :body, :title
+	belongs_to :user
+  	attr_accessible :body, :title, :state
 end
