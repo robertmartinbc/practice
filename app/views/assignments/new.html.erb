@@ -1,2 +1,9 @@
-<h1>Assignments#new</h1>
-<p>Find me in app/views/assignments/new.html.erb</p>
+<%= form_for @assignment do |a| %>
+  <%= a.label :title %>
+  <%= a.text_field :title %>
+
+  <%= a.label :body %>
+  <%= a.text_area :body %>
+
+  <%= a.submit "Save" %>
+<% end %>

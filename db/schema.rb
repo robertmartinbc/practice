@@ -11,13 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712163511) do
+ActiveRecord::Schema.define(:version => 20130712183334) do
 
   create_table "assignments", :force => true do |t|
     t.string   "title"
     t.text     "body"
+    t.string   "state"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "assignments", ["user_id"], :name => "index_assignments_on_user_id"
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "writer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "transactions", ["owner_id"], :name => "index_transactions_on_owner_id"
+  add_index "transactions", ["writer_id"], :name => "index_transactions_on_writer_id"
 
 end
